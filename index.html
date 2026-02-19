@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rewards Center</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f2f4f7;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 95%;
+    max-width: 420px;
+}
+
+h1 {
+    text-align: center;
+    color: #1d2b64;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Novi stil za logo: veći i sa sivo-prozirnim okvirom */
+.logo-container {
+    width: 130px; /* Povećano sa 80px */
+    height: 130px;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Sivo-prozirni okvir */
+    border-radius: 20px;
+    margin: 0 auto 20px auto;
+    box-shadow: 0 2px 100px rgba(0, 0, 0, 0.05); /* Blaga sjenka */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.step {
+    background: white;
+    border-radius: 12px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.number {
+    background: #1d2b64;
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-size: 12px;
+}
+
+.note {
+    text-align: center;
+    font-size: 12px;
+    color: #0077cc;
+    margin: 8px 0;
+}
+
+.claim-btn {
+    width: 100%;
+    background: #1d2b64;
+    color: white;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: 5px;
+}
+
+.claim-btn:hover {
+    transform: scale(1.02);
+    background: #15204a;
+}
+
+.counter {
+    margin-top: 10px;
+    background: #e6f1ff;
+    border: 1px solid #1d2b64;
+    padding: 8px;
+    text-align: center;
+    border-radius: 12px;
+    font-size: 12px;
+}
+
+.faq-title {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.faq-item {
+    background: white;
+    border-radius: 12px;
+    margin-top: 6px;
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.faq-answer {
+    display: none;
+    padding: 8px 10px;
+    font-size: 12px;
+    background: #fafafa;
+}
+
+@media (max-height: 700px) {
+    h1 { font-size: 20px; }
+    .logo-container { width: 100px; height: 100px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Rewards Center</h1>
+
+    <div class="logo-container">
+        <img src="Aldi-Logo.png" alt="Aldi Logo">
+    </div>
+
+    <div class="step"><div class="number">1</div>Click the button below</div>
+    <div class="step"><div class="number">2</div>Enter email & basic info</div>
+    <div class="step"><div class="number">3</div>Complete 4-5 deals</div>
+    <div class="step"><div class="number">4</div>Claim your reward</div>
+
+    <div class="note">Completing more deals results in higher rewards</div>
+
+    <button class="claim-btn" onclick="window.location.href='https://trkio.org/aff_c?offer_id=1403&aff_id=144214'">
+        Claim Your Reward →
+    </button>
+
+    <div class="counter" id="counter">
+        7,306 people claimed today
+    </div>
+
+    <div class="faq-title">FAQ</div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+            How do I become eligible?
+        </div>
+        <div class="faq-answer">
+            To be eligible for the rewards you have to complete 4–5 recommended deals.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+            Why are deals required?
+        </div>
+        <div class="faq-answer">
+            Completing 4–5 deals ensures you are eligible and marks you as safe for rewards.
+        </div>
+    </div>
+
+</div>
+
+<script>
+function toggleFAQ(element) {
+    const answer = element.nextElementSibling;
+    answer.style.display = answer.style.display === "block" ? "none" : "block";
+}
+
+let count = 7306;
+setInterval(() => {
+    count += Math.floor(Math.random() * 3);
+    document.getElementById("counter").innerText =
+        count.toLocaleString() + " people claimed today";
+}, 4000);
+</script>
+
+</body>
+</html>
